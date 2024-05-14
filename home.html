@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Student Page</h1>
+    <button id="signout">Sign Out</button>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCaqSD4pLJAiYB-scOTJaXzLTvEpDncEMg",
+            authDomain: "simple-auth-with-vanilla-10447.firebaseapp.com",
+            projectId: "simple-auth-with-vanilla-10447",
+            storageBucket: "simple-auth-with-vanilla-10447.appspot.com",
+            messagingSenderId: "155321308555",
+            appId: "1:155321308555:web:3f21e12a96c87eb2ac4b8e",
+            measurementId: "G-1KF34NYPYK"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        // const provider = new GoogleAuthProvider();
+        // auth.languageCode = 'it';
+
+
+
+
+
+        // let googleBtn = document.getElementById("googleBtn");
+
+        // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+
+        // provider.setCustomParameters({
+        //     'login_hint': 'farkhodoffcodes@gmail.com'
+        //   });
+
+
+        let signOutBtn = document.getElementById("signout");
+
+
+        signOutBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                alert(auth)
+                alert("Sign out")
+                window.location.href = "./index.html"
+            }).catch((error) => {
+                // An error happened.
+                alert(error)
+            });
+
+        })
+    </script>
+
+</body>
+
+</html>
